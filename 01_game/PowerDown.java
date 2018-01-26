@@ -1,3 +1,7 @@
+// This class, a subclass of DropPower.java, shows an implementation of a power. This specific class represents negative effects, 
+// shown in the trigger method. This shows the two abstract superclasses Power and DropPower in action, and how inheritance
+// ensures compatibility and increases code flexibility.
+
 import java.util.concurrent.ThreadLocalRandom;
 import javafx.scene.image.Image;
 

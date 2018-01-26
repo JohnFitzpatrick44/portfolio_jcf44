@@ -1,3 +1,6 @@
+// This class, a subclass of Power, is also abstract. It is more specific to set the power's behavior, but
+// further subclasses are made to set the power's effects. This prevents duplication and increases code flexibility.
+
 /**
  * Abstract class for powers that drop vertically from their bricks, triggering upon hitting the paddle
  * 
