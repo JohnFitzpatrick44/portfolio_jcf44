@@ -62,7 +62,10 @@ A much less effective commit, 11th on the list above, was commit [3ef0add1](http
 
 ### Conclusions
 
-
+ * I think I estimated the size of this project fairly well. I didn't run out of time, but still didn't spend too much of my day working on it.
+ * The most editing I had to do was refactoring into separate files. By far, this was the largest amount of time I spent editing. I will definitely break up the classes to begin with next time.
+ * To be a better designer, I'm going to think through what classes I will need to begin with, and make them in separate files. Additionally, I will code (and commit) for ease of expansion and review.
+ * In addition to the refactoring work I did for the analysis, I would make the level reader more flexible in its requirements. That seems like an important next step for me, and would greatly benefit the user. Also, adding some sort of level editor would also improve user experience.
 
 
 Design Review
@@ -70,7 +73,28 @@ Design Review
 
 ### Status
 
+From a design standpoint, my code seems to be in a limbo between completely refactored, and not refactored whatsoever. I split and pulled out many classes from the main file, but there is still a class in the main Breakout file, and there are still multiple lengthy methods that should probably be split. Other than that, however, I feel that my code is very consistent with naming conventions, style, and descriptiveness. My variable names and constants are usually very accurate and precise. There are some instance variables that aren't as descriptive as they should be, such as:
+```java
+for(Brick b : bricks) {
+...
+}
+```
+In this case, I just got lazy while writing the loop, and kept it in. Normally, this wouldn't be too much of a problem, but since I used 'b' in for loops for both balls and bricks, it may be a bit confusing to a reviewer.
 
+Overall, the way I split up and named my methods seems readable to me. Of course, I am a bit biased, since I wrote it. The step method is a good example of my code at its most readable:
+```java
+public void step (double elapsedTime) {
+    	if(gameDone) return;
+    	
+    	updatePaddle(elapsedTime);
+    	updateBalls(elapsedTime);
+    	if(movable) updateBricks(elapsedTime);
+    	updatePowers(elapsedTime);
+    	
+    	score.setText("Score\n" + scoreValue);
+    	level.setText("Level\n" + currentLevel);
+    }
+```
 
 ### Design
 
