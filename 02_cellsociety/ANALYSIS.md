@@ -165,19 +165,16 @@ I am not fond of my implementation of the Segregation simulation. The challengin
 
 ### Flexibilty
 
-You can also just write some text
+Our design was quite flexible when it came to different board types. Cell already extended Polygon, so other shapes like triangles were easily implemented. This program is not very flexible with new simulations, however. Initially, the design was to have one Grid class that could initialize any Cell type, which would have been  very flexible and desirable. However, now the program is very rigid with adding new simulations, as a new holder class, grid class, cell class, and potentially agent class must be added, as well as implementations in XML parser, MainView, and XML reader. I think this lack of flexibility is partially due to miscommunication within our group during the design phase, which is something I will be looking to improve.
 
-in separate paragraphs.
+One example of some code I did not implement is MainView, as discussed above. I find this code interesting, because it is such a big class that has a very large reach in the program. This class references every grid class for every simulation in the program, severly limiting its flexibility. It defines the files for each simulation, initializes the grid based on the type of simulation, sets up the GUI, buttons, drop-down menu, and handles all of their actions. MainView handles a simulation switch, simulation speed up or down, and single steps. MainView even tells the grids when to update the cells. In my opinion, having one large class to do all this was a bad choice, as adding new types of buttons (and their effects), GUI elements, and simulations will all have to go through MainView. This class is very inflexible, making it difficult to implement new related features.
+
+Another example of a feature I did not implement is the XML reader class. I find this code interesting because although it is not flexible in some ways, in regards to its many private variables for each simulation, it is very flexible in others. Other than this class's initialization in Main, this class only interacts with DataHolders. I mentioned above that I am iffy about these holders, but they do make it easy to separate the reader from the grid, agent, and cell classes that depend on it. It is flexible in the sense that those cell and grid classes can use the holders however they like, and the reader is able to stay separate. The reader is slightly inflexible when adding a new simulation, as new rules for that simulation's XML file must be created, but otherwise this feature is fairly solid.
 
 
 ### Alternate Designs
 
-Here is a graphical look at my design:
 
-![This is cool, too bad you can't see it](online-shopping-uml-example.png "An alternate design")
-
-made from a tool that generates UML from existing code like the
-Eclipse plugin [ObjectAid](http://www.objectaid.com/).
 
 
 ### Conclusions
