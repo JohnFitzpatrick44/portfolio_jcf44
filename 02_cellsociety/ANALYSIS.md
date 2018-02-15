@@ -194,5 +194,11 @@ Ultimately, I would have preferred to have one grid class, as it would have made
 
 ### Conclusions
 
+In my opinion, the best part of this project's design is the implementation of different cell classes for each simulation. This makes the code much more modular, and would theoretically make adding new simulations much easier. Writing this portion of the code also taught me how to use abstract classes and interfaces, which is something I needed to improve on from my first project.
 
+In my opinion, the worst feature of this project is MainView. It is a massive, inflexible class that is highly dependent on many other classes and features. This class showed me how important polymorphism can be to avoid the large if trees present in this class. Additionally, it shows me the importance of modularity, as this class should be split into multiple smaller ones, with more specialized purposes. 
+
+To be a better designer for the next project, I am going to start meeting with my team more. Messaging over Facebook is alright, but meeting in person will ensure that everyone is on the same page about the design of the project before that project spirals out of control. I am also going to start looking at my code from everyone else's perspective, and do my best to make their implementation of my classes as painless as possible.
+I am going to keep creating interfaces for my classes (that hopefully will be used), that limit the user's interaction with my classes, reducing dependency, and hopefully making their implementation easier. I will keep my classes relatively short and specialized to keep them modular.
+I am going to stop using backchannels to alter data, such as between agents and MainView's root. Dependencies should be limited, but also very obvious, so that if an exception or error does result from one, it can be easily traced.
 
